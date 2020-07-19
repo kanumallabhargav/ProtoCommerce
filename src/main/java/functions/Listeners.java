@@ -1,5 +1,8 @@
 package functions;
 
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -9,8 +12,9 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import resources.ExtentReporter;
+import resources.screenshotOnFailure;
 
-public class Listeners implements ITestListener
+public class Listeners extends Base implements ITestListener
 {
 
 	ExtentReports extent = ExtentReporter.getReport();
@@ -33,6 +37,25 @@ public class Listeners implements ITestListener
 	public void onTestFailure(ITestResult result) 
 	{
 		test.fail(result.getThrowable());
+		String methodName = result.getMethod().getMethodName();
+		try 
+		{
+			@SuppressWarnings("unused")
+			WebDriver driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		} 
+		screenshotOnFailure screenShotObject = new screenshotOnFailure();
+		try 
+		{
+			screenShotObject.getScreenshot(methodName,driver);
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void onTestSkipped(ITestResult arg0) {
