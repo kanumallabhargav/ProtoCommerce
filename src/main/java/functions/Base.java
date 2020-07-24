@@ -12,13 +12,13 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class Base 
 {
-	WebDriver driver;
-	Properties prop = new Properties();
+	public static WebDriver driver;
+	static Properties prop = new Properties();
 	public WebDriver driverInitialize() throws IOException
 	{
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/resources/Data.properties");
 		prop.load(fis);
-		String browserName = System.getProperty("browser");
+		String browserName = prop.getProperty("browser");
 		String url = prop.getProperty("url");
 		if(browserName.equalsIgnoreCase("chrome"))
 		{
@@ -46,6 +46,28 @@ public class Base
 			driver = new FirefoxDriver(firefoxOptionsObject);
 		}
 		driver.get(url);
+		driver.manage().window().maximize();
 		return driver;
+	}
+	public String getSuccessMessage() throws IOException
+	{
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/resources/Data.properties");
+		prop.load(fis);
+		String successMessage = prop.getProperty("successMessage");
+		return successMessage;
+	}
+	public static String getDoB_male() throws IOException
+	{
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/resources/Data.properties");
+		prop.load(fis);
+		String successMessage = (String) prop.get("dobMale");
+		return successMessage;
+	}
+	public static String getDoB_female() throws IOException
+	{
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/resources/Data.properties");
+		prop.load(fis);
+		String successMessage = (String) prop.get("dobFemale");
+		return successMessage;
 	}
 }
