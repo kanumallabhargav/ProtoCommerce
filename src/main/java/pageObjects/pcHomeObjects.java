@@ -26,6 +26,7 @@ public class pcHomeObjects extends Base
 	private String tagName_dateBox = "input";
 	private By submit = By.cssSelector("input[type='submit']");
 	private By successMessageBox = By.xpath("//div[@class='alert alert-success alert-dismissible']");
+	private By shopButton = By.cssSelector("a[href='/angularpractice/shop']");
 	
 	
 	public pcHomeObjects(WebDriver driver) {
@@ -95,6 +96,10 @@ public class pcHomeObjects extends Base
 	{
 		String liveMessage = driver.findElement(successMessageBox).getText();
 		return liveMessage;
+	}
+	public void clickOnShopButton()
+	{
+		driver.findElement(shopButton).click();
 	}
 	
 }

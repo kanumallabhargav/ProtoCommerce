@@ -1,7 +1,4 @@
-00:12:32.145 [main] INFO  functions.Base - Name entered
-00:12:32.219 [main] INFO  functions.Base - Email entered
-00:12:32.259 [main] INFO  functions.Base - Password entered
-00:12:32.486 [main] INFO  functions.Base - Clicked on checkBox
-00:12:32.794 [main] INFO  functions.Base - Gender selected (male)
-00:12:33.021 [main] INFO  functions.Base - Employment status selected
-00:12:33.274 [main] INFO  functions.Base - Clicked on submit
+00:55:40.866 [AsyncHttpClient-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.linkCapacity: 16
+00:55:40.867 [AsyncHttpClient-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+00:55:55.281 [main] INFO  functions.Base - Box displayed
+00:55:55.281 [main] INFO  functions.Base - TestCase passed
