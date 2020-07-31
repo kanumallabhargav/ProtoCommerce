@@ -7,6 +7,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,7 +31,13 @@ public class pcShoppingObjects extends Base
 	private By checkboxTermsandConditions = By.xpath("//input[@id='checkbox2']");
 	private By purchaseButton = By.xpath("//input[@type='submit']");
 	private By verificationBox = By.xpath("/html/body/app-root/app-shop/div/app-checkout/div[2]/div");
-	
+	private By continueShoppingButton = By.cssSelector(".btn.btn-default");
+	private By homePageValidatorElement = By.xpath("//div[@class='list-group']");
+	private By quantityBox = By.id("exampleInputEmail1");
+	private By orderTotalElement = By.xpath("/html/body/app-root/app-shop/div/div/div/table/tbody/tr[2]/td[5]/h3/strong");
+	private By removeButton = By.cssSelector(".btn.btn-danger");
+	private By itemToBeRemoved = By.xpath("/html/body/app-root/app-shop/div/div/div/table/tbody/tr[1]/td[5]/h3/strong");
+
 	public pcShoppingObjects(WebDriver driver) 
 	{
 		this.driver = driver;
@@ -86,5 +93,43 @@ public class pcShoppingObjects extends Base
 	public boolean verifyBox()
 	{
 		return driver.findElement(verificationBox).isDisplayed();
+	}
+	public void clickOnContinueShoppingButton()
+	{
+		driver.findElement(continueShoppingButton).click();;
+	}
+	public boolean homePageValidator()
+	{
+		boolean verifyHomePage = driver.findElement(homePageValidatorElement).isDisplayed();
+		return verifyHomePage;
+	}
+	public String checkItemsInCartAfterReturningToHomePage()
+	{
+		String textFromCheckoutButton = driver.findElement(blueCheckoutButton).getText();
+		return textFromCheckoutButton;
+	}
+	public void increaseQuantity()
+	{
+		driver.findElement(quantityBox).sendKeys(Keys.BACK_SPACE);
+		driver.findElement(quantityBox).sendKeys("4");
+	}
+	public String getOrderTotal()
+	{
+		String orderTotal = driver.findElement(orderTotalElement).getText();
+		return orderTotal;
+	}
+	public void clickOnRemoveButton()
+	{
+		driver.findElement(removeButton).click();
+	}
+	public boolean verifyItemRemoval()
+	{
+		boolean itemVisibility = driver.findElement(itemToBeRemoved).isDisplayed();
+		return itemVisibility;
+	}
+	public String verifyOrderTotal()
+	{
+		String orderTotalAfterRemoving = driver.findElement(itemToBeRemoved).getText();
+		return orderTotalAfterRemoving;
 	}
 }

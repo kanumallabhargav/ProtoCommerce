@@ -27,6 +27,7 @@ public class pcHomeObjects extends Base
 	private By submit = By.cssSelector("input[type='submit']");
 	private By successMessageBox = By.xpath("//div[@class='alert alert-success alert-dismissible']");
 	private By shopButton = By.cssSelector("a[href='/angularpractice/shop']");
+	private By orderTotalElementAfterRemoval = By.xpath("/html/body/app-root/app-shop/div/div/div/table/tbody/tr[1]/td[5]/h3/strong");
 	
 	
 	public pcHomeObjects(WebDriver driver) {
@@ -101,6 +102,10 @@ public class pcHomeObjects extends Base
 	{
 		driver.findElement(shopButton).click();
 	}
-	
+	public boolean verifyOrderTotalAfterRemoval()
+	{
+		boolean orderTotalAfterRemoval = driver.findElement(orderTotalElementAfterRemoval).isDisplayed();
+		return orderTotalAfterRemoval;
+	}
 }
 

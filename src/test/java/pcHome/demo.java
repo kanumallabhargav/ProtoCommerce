@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import functions.Base;
+import pageObjects.pcShoppingObjects;
 
 public class demo extends Base{
 
@@ -18,7 +19,7 @@ public class demo extends Base{
 	{
 		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/java/resources/geckodriver");
 		WebDriver driver = new FirefoxDriver();
-		driver.get("https://www.rahulshettyacademy.com/angularpractice/");
+		driver.get("https://www.rahulshettyacademy.com/angularpractice/shop");
 		
 		/*driver.findElement(By.cssSelector("input[type='submit']")).click();
 		String x = driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']")).getText();
@@ -36,10 +37,25 @@ public class demo extends Base{
 		Select selectObject = new Select((driver.findElement(dropdownObject)));
 		selectObject.selectByVisibleText("Female");*/
 		
-		driver.findElement(By.xpath("//input[@name='name']")).sendKeys("quertyasdfg");
+		/*driver.findElement(By.xpath("//input[@name='name']")).sendKeys("quertyasdfg");
 		Thread.sleep(3000);
-		System.out.println(driver.findElement(By.cssSelector(".ng-untouched.ng-pristine.ng-valid")).getAttribute("value"));
+		System.out.println(driver.findElement(By.cssSelector(".ng-untouched.ng-pristine.ng-valid")).getAttribute("value"));*/
 		
+		/*String a = driver.findElement(By.xpath("//*[@id=\"navbarResponsive\"]/ul/li/a")).getText();
+		System.out.println(a);*/
+		
+		
+		/*pcShoppingObjects shoppingObjects = new pcShoppingObjects(driver);
+		shoppingObjects.clickOnSecondAddButton();
+		shoppingObjects.clickOnBlueCheckoutButton();
+		driver.findElement(By.id("exampleInputEmail1")).sendKeys("4");
+		String b = driver.findElement(By.xpath("/html/body/app-root/app-shop/div/div/div/table/tbody/tr[2]/td[5]/h3/strong")).getText();
+		System.out.println(b);*/
+		
+		pcShoppingObjects shoppingObjects = new pcShoppingObjects(driver);
+		shoppingObjects.clickOnSecondAddButton();
+		shoppingObjects.clickOnBlueCheckoutButton();
+		driver.findElement(By.cssSelector(".btn.btn-danger")).click();
 	}
 
 }

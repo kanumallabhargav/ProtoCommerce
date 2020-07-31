@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20365" started-at="2020-07-26T19:25:34Z" finished-at="2020-07-26T19:25:55Z">
+  <suite name="Default suite" duration-ms="14880" started-at="2020-07-31T17:39:47Z" finished-at="2020-07-31T17:40:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20365" started-at="2020-07-26T19:25:34Z" finished-at="2020-07-26T19:25:55Z">
-      <class name="pcShopping.pcShopping_SS1">
-        <test-method status="PASS" signature="pcShopping_SS1_positiveAction()[pri:0, instance:pcShopping.pcShopping_SS1@4466af20]" name="pcShopping_SS1_positiveAction" duration-ms="20354" started-at="2020-07-27T00:55:34Z" finished-at="2020-07-27T00:55:55Z">
+    <test name="Default test" duration-ms="14880" started-at="2020-07-31T17:39:47Z" finished-at="2020-07-31T17:40:02Z">
+      <class name="pcShopping.pcShopping_SS4">
+        <test-method status="PASS" signature="pcShopping_SS3_positiveAction()[pri:0, instance:pcShopping.pcShopping_SS4@6b927fb]" name="pcShopping_SS3_positiveAction" duration-ms="14869" started-at="2020-07-31T23:09:47Z" finished-at="2020-07-31T23:10:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- pcShopping_SS1_positiveAction -->
-      </class> <!-- pcShopping.pcShopping_SS1 -->
+        </test-method> <!-- pcShopping_SS3_positiveAction -->
+      </class> <!-- pcShopping.pcShopping_SS4 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
